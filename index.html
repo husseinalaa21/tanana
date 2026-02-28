@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tax accounting, financial planning, and mortgage services by Tanana & Sons.">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&display=swap" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- script -->
+    <script src="script.js" defer></script>
+
+    <!-- title -->
+    <title>Tanana & Sons - for tax accounting and financial planning and mortgage services</title>
+</head>
+
+<body>
+    <div class="alert">
+        this is a demo website for Tanana & Sons, a tax accounting and financial planning and mortgage services company.
+        made by <a href="https://github.com/husseinalaa21">hussein alzuabidi</a>.
+    </div>
+    <header class="header">
+        <div class="logo">
+            <div class="logo_image">
+                <img src="assets/icons/2-3.png" alt="logo" width="42px">
+            </div>
+            <div class="logo_text">
+                <h1>Tanana</h1>
+                <h2>Tanana & Sons- Ibrahim Tanana</h2>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="def_list">
+                <ul class="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mobileNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen nav -->
+        <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true" aria-modal="true">
+            <button id="mobileClose" class="mobile-close" aria-label="Close menu">&times;</button>
+            <ul class="mobile-nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="part_a main_background">
+            <div class="main_content">
+                <div class="main_info">
+                    <h1>Welcome to Tanana & Sons</h1>
+                    <p class="subject">Your trusted partner for tax accounting, financial planning, and mortgage
+                        services.</p>
+                    <p class="description"></p>
+                    <a id="slideTag" class="tag" href="#" style="display:none">Learn more</a>
+                </div>
+                <div class="eform">
+                    <div id="title" class="title"></div>
+                    <div class="container">
+                        <div id="book" class="book">
+                            <h2>Book an Appointment</h2>
+                            <h3 onclick="toggleTrack()">OR track an existing appointment?</h3>
+                            <form action="#" method="post">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                                <input type="email" name="email" placeholder="Your Email" required>
+                                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                                <select name="service" required>
+                                    <option value="" disabled selected>Select a Service</option>
+                                    <option value="tax">Tax Accounting</option>
+                                    <option value="financial">Financial Planning</option>
+                                    <option value="mortgage">Mortgage Services</option>
+                                </select>
+                                <button type="submit">Book Now</button>
+                            </form>
+                        </div>
+                        <div id="track">
+                            <h2>Track Your Appointment</h2>
+                            <h3 onclick="toggleBook()">OR schedule newappointment?</h3>
+                            <form action="#" method="post">
+                                <input type="text" name="appointment_id" placeholder="Appointment ID" required>
+                                <button type="submit">Track</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="part_b">
+            <h1>Our Services</h1>
+            <div class="services">
+                <div class="service">
+                    <img src="assets/icons/2-3.png" alt="service 1" width="64px">
+                    <h2>Tax Accounting</h2>
+                    <p>Expert tax preparation and planning to maximize your returns and minimize liabilities.</p>
+
+                </div>
+                <div class="service">
+                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
+                    <h2>Financial Planning</h2>
+                    <p>Comprehensive financial strategies to help you achieve your long-term goals.</p>
+                </div>
+                <div class="service">
+                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
+                    <h2>Insurance</h2>
+                    <p>Comprehensive insurance solutions to protect your assets and future.</p>
+                </div>
+                <div class="service">
+                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
+                    <h2>Immigration Services</h2>
+                    <p>Expert immigration support to help you navigate the process and achieve your goals.</p>
+                </div>
+            </div>
+            <div class="part_a about_us_background">
+                <div class="about_us_content">
+                    <h1>About Us</h1>
+                    <p>At Tanana & Sons, we are dedicated to providing exceptional tax accounting, financial planning,
+                        and mortgage services. With years of experience and a commitment to excellence, we strive to
+                        help our clients achieve their financial goals and secure their future.</p>
+                </div>
+            </div>
+    </main>
+
+    </div>
+    <div class="end">
+        <div class="logo">
+            <img src="/iv.png" width="100px" />
+        </div>
+        <div class="subscribe modern-subscribe" id="subscribe">
+            <h3>Subscribe to our newsletter</h3>
+            <p>Get updates, news straight to your inbox.</p>
+            <form id="subscribeForm">
+                <div class="input-group">
+                    <input type="email" id="subscribeEmail" placeholder="Enter your email" required />
+                    <button type="submit">Subscribe</button>
+                </div>
+                <div id="subscribeMess"></div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Social icons -->
+    <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61586677889539" target="_blank">
+            Facebook
+        </a>
+        <a href="mailto:illinoisvictims.claims@gmail.com">
+            Gmail
+        </a>
+    </div>
+    <footer class="part_b" style="text-align:center; padding:24px; background:#222; color:#fff;">
+        <p>&copy; 2026 Tanana &amp; Sons. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:info@tanana.com" style="color:#0b5cff; text-decoration:none;">info@tanana.com</a>
+        </p>
+    </footer>
+</body>
+
+</html>

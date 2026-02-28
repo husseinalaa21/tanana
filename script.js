@@ -1,0 +1,131 @@
+// Mobile nav toggle
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+
+function openMobileNav(){
+  mobileNav.classList.add('open');
+  hamburger.setAttribute('aria-expanded','true');
+  mobileNav.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileNav(){
+  mobileNav.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+  mobileNav.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+hamburger?.addEventListener('click', ()=>{
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+  if(expanded) closeMobileNav(); else openMobileNav();
+});
+
+mobileClose?.addEventListener('click', ()=> closeMobileNav());
+
+// Close when clicking a nav link
+document.addEventListener('click', (e)=>{
+  if(e.target.matches('.mobile-nav-list a')) closeMobileNav();
+});
+
+// Close on Escape
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape') closeMobileNav();
+});
+
+// Appointment form toggles
+function toggleTrack(){
+  const book = document.getElementById('book');
+  const track = document.getElementById('track');
+  if(book && track){
+    book.style.display = 'none';
+    track.style.display = 'block';
+  }
+}
+function toggleBook(){
+  const book = document.getElementById('book');
+  const track = document.getElementById('track');
+  if(book && track){
+    track.style.display = 'none';
+    book.style.display = 'block';
+  }
+}
+
+// initial state
+window.addEventListener('DOMContentLoaded', ()=>{
+  const track = document.getElementById('track');
+  if(track) track.style.display = 'none';
+});
+
+// Background slideshow for main_background
+window.addEventListener('DOMContentLoaded', ()=>{
+  const slides = [
+    {
+      id: 'a1',
+      title: 'Accounting & Taxation',
+      subject: 'Accurate bookkeeping and compliant tax preparation.',
+      description: 'We manage your books, prepare timely tax returns, and ensure compliance so you avoid penalties and keep more of what you earn.',
+      bg: './images/a-1.jpg',
+      link: '/services/tax'
+    },
+    {
+      id: 'a2',
+      title: 'Insurance & Risk Protection',
+      subject: 'Tailored insurance solutions to protect people and assets.',
+      description: 'Customized coverage for homes, businesses, and families to reduce financial risk and provide peace of mind.',
+      bg: './images/a-2.jpg',
+      link: '/services/insurance'
+    },
+    {
+      id: 'a3',
+      title: 'Realty & Mortgage Services',
+      subject: 'Helping buyers, sellers, and borrowers connect and succeed.',
+      description: 'Property matching, market guidance, and mortgage options to help you buy, sell, or refinance with confidence.',
+      bg: './images/a-3.jpg',
+      link: '/services/realty'
+    },
+    {
+      id: 'a4',
+      title: 'Immigration & Translation',
+      subject: 'Expert support for immigration processes and official translations.',
+      description: 'Assistance with visa paperwork, document translation, and navigating immigration requirements for individuals and families.',
+      bg: './images/a-4.jpg',
+      link: '/contact'
+    }
+  ];
+
+  const mainBg = document.querySelector('.main_background');
+  const mainInfo = document.querySelector('.main_info');
+  if(!mainBg || !mainInfo) return;
+
+  let idx = 0;
+
+  function showSlide(i){
+    const slide = slides[i % slides.length];
+    // fade text
+    mainInfo.style.opacity = 0;
+    // change background (will be visible under blue overlay)
+    mainBg.style.backgroundImage = `url("${slide.bg}")`;
+    // update text and CTA after short delay for smooth transition
+    setTimeout(()=>{
+      const h = mainInfo.querySelector('h1');
+      const subj = mainInfo.querySelector('.subject');
+      const desc = mainInfo.querySelector('.description');
+      const cta = document.getElementById('slideTag');
+      if(h) h.textContent = slide.title;
+      if(subj) subj.textContent = slide.subject;
+      if(desc) desc.textContent = slide.description || '';
+      if(cta){
+        if(slide.link){ cta.href = slide.link; cta.style.display = 'inline-block'; }
+        else { cta.style.display = 'none'; }
+      }
+      mainInfo.style.opacity = 1;
+    }, 350);
+  }
+
+  // preload images
+  slides.forEach(s=>{ const img=new Image(); img.src=s.bg; });
+
+  showSlide(idx);
+  setInterval(()=>{ idx = (idx+1) % slides.length; showSlide(idx); }, 10000);
+});
