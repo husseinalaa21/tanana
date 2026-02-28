@@ -128,4 +128,19 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   showSlide(idx);
   setInterval(()=>{ idx = (idx+1) % slides.length; showSlide(idx); }, 10000);
+
+  // previously generated service cards here, now handled statically in HTML
+});
+
+// make static service cards act like buttons (keyboard accessible)
+window.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.part_b .service[data-link]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const link = el.dataset.link;
+      if(link) window.location.href = link;
+    });
+    el.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
+  });
 });

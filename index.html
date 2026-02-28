@@ -27,7 +27,7 @@
     <header class="header">
         <div class="logo">
             <div class="logo_image">
-                <img src="assets/icons/2-3.png" alt="logo" width="42px">
+                <img src="./icons/2-3.png" alt="logo" width="48px">
             </div>
             <div class="logo_text">
                 <h1>Tanana</h1>
@@ -78,6 +78,17 @@
                     <div class="container">
                         <div id="book" class="book">
                             <h2>Book an Appointment</h2>
+                            <div class="pic_group">
+                                <div class="corp_pic">
+                                    <img src="./agents/Mac-Tanana.jpg" />
+                                </div>
+                                <div class="corp_pic">
+                                    <img src="./agents/Kassem-Tanana.jpg" />
+                                </div>
+                                <div class="corp_pic">
+                                    <img src="./agents/Ibrahim-Tanana.jpg" />
+                                </div>
+                            </div>
                             <h3 onclick="toggleTrack()">OR track an existing appointment?</h3>
                             <form action="#" method="post">
                                 <input type="text" name="name" placeholder="Your Name" required>
@@ -107,26 +118,21 @@
         <div class="part_b">
             <h1>Our Services</h1>
             <div class="services">
-                <div class="service">
-                    <img src="assets/icons/2-3.png" alt="service 1" width="64px">
-                    <h2>Tax Accounting</h2>
-                    <p>Expert tax preparation and planning to maximize your returns and minimize liabilities.</p>
-
+                <div class="service" role="button" tabindex="0" data-link="/services/tax" style="background-image:url('./images/a-1.jpg')">
+                    <h2>Accounting & Taxation</h2>
+                    <p>Accurate bookkeeping and compliant tax preparation.</p>
                 </div>
-                <div class="service">
-                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
-                    <h2>Financial Planning</h2>
-                    <p>Comprehensive financial strategies to help you achieve your long-term goals.</p>
+                <div class="service" role="button" tabindex="0" data-link="/services/insurance" style="background-image:url('./images/a-2.jpg')">
+                    <h2>Insurance & Risk Protection</h2>
+                    <p>Tailored insurance solutions to protect people and assets.</p>
                 </div>
-                <div class="service">
-                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
-                    <h2>Insurance</h2>
-                    <p>Comprehensive insurance solutions to protect your assets and future.</p>
+                <div class="service" role="button" tabindex="0" data-link="/services/realty" style="background-image:url('./images/a-3.jpg')">
+                    <h2>Realty & Mortgage Services</h2>
+                    <p>Helping buyers, sellers, and borrowers connect and succeed.</p>
                 </div>
-                <div class="service">
-                    <img src="assets/icons/2-3.png" alt="service 2" width="64px">
-                    <h2>Immigration Services</h2>
-                    <p>Expert immigration support to help you navigate the process and achieve your goals.</p>
+                <div class="service" role="button" tabindex="0" data-link="/contact" style="background-image:url('./images/a-4.jpg')">
+                    <h2>Immigration & Translation</h2>
+                    <p>Expert support for immigration processes and official translations.</p>
                 </div>
             </div>
             <div class="part_a about_us_background">
@@ -135,42 +141,56 @@
                     <p>At Tanana & Sons, we are dedicated to providing exceptional tax accounting, financial planning,
                         and mortgage services. With years of experience and a commitment to excellence, we strive to
                         help our clients achieve their financial goals and secure their future.</p>
+                    <div class="about-photos">
+                        <img src="./images/tanana_office.webp" alt="Tanana exterior" />
+                    </div>
                 </div>
             </div>
     </main>
 
-    </div>
-    <div class="end">
-        <div class="logo">
-            <img src="/iv.png" width="100px" />
-        </div>
-        <div class="subscribe modern-subscribe" id="subscribe">
-            <h3>Subscribe to our newsletter</h3>
-            <p>Get updates, news straight to your inbox.</p>
-            <form id="subscribeForm">
-                <div class="input-group">
-                    <input type="email" id="subscribeEmail" placeholder="Enter your email" required />
-                    <button type="submit">Subscribe</button>
+    <footer class="end site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-col footer-brand">
+                <img src="./icons/2-3.png" alt="Tanana logo" class="footer-logo" />
+                <p class="muted">Tanana &amp; Sons — Tax accounting, financial planning &amp; mortgage services.</p>
+            </div>
+
+            <div class="footer-col footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p class="muted">Phone: (555) 123-4567<br/>Email: <a href="mailto:info@tanana.com">info@tanana.com</a></p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61586677889539" target="_blank">Facebook</a>
+                    <a href="mailto:illinoisvictims.claims@gmail.com">Email</a>
                 </div>
-                <div id="subscribeMess"></div>
-            </form>
+            </div>
+
+            <div class="footer-col footer-newsletter">
+                <h4>Newsletter</h4>
+                <p class="muted">Get updates straight to your inbox.</p>
+                <form id="subscribeForm" class="footer-subscribe" action="#" method="post">
+                    <label for="subscribeEmail" class="sr-only">Email address</label>
+                    <div class="input-group">
+                        <input type="email" id="subscribeEmail" name="email" placeholder="Enter your email" required />
+                        <button type="submit">Subscribe</button>
+                    </div>
+                    <div id="subscribeMess"></div>
+                </form>
+            </div>
         </div>
 
-    </div>
-
-    <!-- Social icons -->
-    <div class="social">
-        <a href="https://www.facebook.com/profile.php?id=61586677889539" target="_blank">
-            Facebook
-        </a>
-        <a href="mailto:illinoisvictims.claims@gmail.com">
-            Gmail
-        </a>
-    </div>
-    <footer class="part_b" style="text-align:center; padding:24px; background:#222; color:#fff;">
-        <p>&copy; 2026 Tanana &amp; Sons. All Rights Reserved.</p>
-        <p>Contact us: <a href="mailto:info@tanana.com" style="color:#0b5cff; text-decoration:none;">info@tanana.com</a>
-        </p>
+        <div class="site-footer-bottom">
+            <p>&copy; 2026 Tanana &amp; Sons. All Rights Reserved. <span class="sep">|</span> <a href="/privacy">Privacy</a></p>
+        </div>
     </footer>
 </body>
 

@@ -95,7 +95,7 @@ body {
 
 .hamburger span {
     display: block;
-    width: 22px;
+    width: 26px;
     height: 3px;
     background: #fff;
     margin: 4px 0;
@@ -200,7 +200,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(10, 22, 50, 0.748);
+    background: rgba(10, 22, 50, 0.596);
     pointer-events: none;
 }
 
@@ -256,25 +256,183 @@ body {
     color: rgba(255, 255, 255, 0.92);
 }
 
+.subject {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.main_info h1 {
+    font-size: 2.1rem;
+}
+
 .main_background .main_info .description {
     margin-top: 12px;
-    font-size: 1rem;
+    font-size: 1.6rem;
     opacity: 0.9;
 }
 
-.services {
+.part_b .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin-top: 18px
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    /* no gap — use borders */
+    margin-top: 8px;
+}
+
+/* single column on narrow screens */
+@media (max-width:640px) {
+    .part_b .services {
+        grid-template-columns: 1fr
+    }
 }
 
 .service {
-    background: #fff;
+    background: #000;
+    /* fallback */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.service::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(3, 105, 161, 0.5);
+    /* blue filter 50% */
+    z-index: 0;
+    transition: background-color .18s ease, opacity .18s ease;
+}
+
+.service:hover::before,
+.service:focus::before {
+    background: rgba(3, 105, 161, 0.8)
+}
+
+.service:active::before {
+    background: rgba(3, 105, 161, 0.85)
+}
+
+.service h2,
+.service p {
+    position: relative;
+    z-index: 1;
+    margin: 6px 0
+}
+
+.service:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.18);
+    outline-offset: -3px
+}
+
+/* borders and grid adjacency */
+.part_b .service {
+    border: 1px solid rgba(0, 0, 0, 0.06)
+}
+
+.part_b .service:nth-child(1),
+.part_b .service:nth-child(2) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06)
+}
+
+.part_b .service:nth-child(1),
+.part_b .service:nth-child(3) {
+    border-right: 1px solid rgba(0, 0, 0, 0.06)
+}
+
+/* About section photos */
+.about-photos {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.about-photos img {
+    width: 100%;
+    height: 320px;
+    /* larger image */
+    object-fit: cover;
+    border-radius: 4px;
+    /* smaller radius */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+@media (max-width:920px) {
+    .about-photos img {
+        height: 280px
+    }
+}
+
+@media (max-width:640px) {
+    .about-photos {
+        flex-direction: column
+    }
+
+    .about-photos img {
+        width: 100%;
+        height: 220px
+    }
+}
+
+/* About Us section layout and typography improvements */
+.about_us_background {
+    background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fb 100%);
+    padding: 34px 20px;
+}
+
+.about_us_content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    align-items: center;
     padding: 18px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-    text-align: center
+}
+
+.about_us_content h1 {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+    color: #0b2b4a
+}
+
+.about_us_content p {
+    color: #334155;
+    line-height: 1.6;
+    font-size: 1.2rem
+}
+
+.about-photos img {
+    border-radius: 10px
+}
+
+@media (max-width:920px) {
+    .about_us_content {
+        grid-template-columns: 1fr;
+        padding: 12px
+    }
+
+    .about-photos {
+        margin-top: 12px
+    }
 }
 
 .tag {
@@ -300,8 +458,8 @@ body {
     border-radius: 6px;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
     transition: transform .2s ease;
-    max-width: 600px;
     width: 100%;
+    margin: auto;
 }
 
 .eform .book:hover,
@@ -449,12 +607,10 @@ footer {
 /* footer/end section */
 .end {
     background: #ece6c4;
-    padding: 40px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 30px;
+    padding: 28px 20px;
+    display: block;
+    /* stacked by default on small screens */
+    gap: 18px;
 }
 
 .end .logo img {
@@ -668,4 +824,221 @@ button:hover {
     padding: 20px 20px;
     border: 0;
     border-bottom: 1px solid #a5b5c5a8;
+}
+
+
+.pic_group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.corp_pic+.corp_pic {
+    margin-left: -15px;
+    /* each image overlaps the previous by 10px */
+}
+
+.corp_pic_a+.corp_pic_a {
+    margin-left: -15px;
+    /* each image overlaps the previous by 10px */
+}
+
+.gp {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-left: 45px;
+}
+
+.gp a {
+    text-decoration: none;
+    color: #333;
+}
+
+.pg {
+    margin-left: 20px;
+}
+
+.corp_pic {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.corp_pic_a {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.g_note {
+    width: 100%;
+}
+
+.corp_pic img,
+.corp_pic_a img {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+/* Footer / .end improvements */
+.site-footer {
+    background: #0f1724;
+    color: #dbeafe;
+    padding: 48px 20px 20px;
+}
+
+.site-footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* mobile: single column */
+    gap: 18px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto 18px;
+}
+
+/* Footer grid breakpoints: 2 columns on small tablets, 4 columns on large */
+@media (min-width:520px) {
+    .site-footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px
+    }
+}
+
+@media (min-width:900px) {
+    .site-footer-inner {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px
+    }
+}
+
+/* Re-enable horizontal layout for legacy `.end` wrapper on wide screens */
+@media (min-width:900px) {
+    .end {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center
+    }
+}
+
+.site-footer .footer-col h4 {
+    margin: 0 0 8px;
+    color: #fff
+}
+
+.site-footer .muted {
+    color: #b8c6d8;
+    font-size: 0.95rem;
+    margin: 8px 0
+}
+
+.footer-logo {
+    width: 84px;
+    height: auto;
+    margin-bottom: 8px
+}
+
+.site-footer .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.site-footer .footer-nav li {
+    margin: 6px 0
+}
+
+.site-footer a {
+    color: #93c5fd;
+    text-decoration: none
+}
+
+.site-footer a:hover {
+    text-decoration: underline
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px
+}
+
+.footer-subscribe .input-group {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.footer-subscribe input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent;
+    color: inherit;
+    font-size: 1rem;
+    min-width: 180px
+}
+
+.footer-subscribe button {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem
+}
+
+/* Responsive: stack input and button on small screens */
+@media (max-width:520px) {
+    .footer-subscribe .input-group {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .footer-subscribe input,
+    .footer-subscribe button {
+        width: 100%
+    }
+
+    .footer-subscribe input {
+        min-width: 0
+    }
+}
+
+.site-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+    text-align: center;
+    color: #9fb5d7;
+    font-size: 0.9rem
+}
+
+.site-footer .sep {
+    opacity: 0.6;
+    margin: 0 8px
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0
 }
