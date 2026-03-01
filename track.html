@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="track_id.js" defer></script>
     <title>Track Appointment - Tanana & Sons</title>
 </head>
 
@@ -47,17 +48,18 @@
     <main>
         <section class="part_a track-hero">
             <h1>Track Your Appointment</h1>
-            <p>Enter your appointment ID to view your case details, then upload your required documents securely for our office review.</p>
+            <p>Enter your appointment ID to view your appointment details, then add your documents for office review.</p>
         </section>
 
         <section class="part_b track-panel">
             <form id="trackLookupForm" class="track-form" novalidate>
                 <label for="appointmentId">Appointment ID</label>
                 <div class="track-row">
-                    <input id="appointmentId" name="appointment_id" type="text" required placeholder="Example: TN-1001" autocomplete="off">
+                    <input id="appointmentId" name="appointment_id" type="text" required placeholder="Demo ID: 1234" autocomplete="off">
                     <button type="submit">Submit</button>
                 </div>
-                <p class="track-hint">Appointment ID is required.</p>
+                <p class="track-hint">Use demo appointment ID: <strong>1234</strong>.</p>
+                <p class="track-hint">If you don’t have an appointment, <a href="index.html">click here</a>.</p>
             </form>
 
             <p id="trackFeedback" class="track-feedback" aria-live="polite"></p>
@@ -66,22 +68,24 @@
                 <h2>Appointment Information</h2>
                 <div class="result-grid">
                     <p><strong>ID:</strong> <span data-field="id"></span></p>
-                    <p><strong>Client:</strong> <span data-field="client"></span></p>
+                    <p><strong>Name:</strong> <span data-field="name"></span></p>
+                    <p><strong>Email:</strong> <span data-field="email"></span></p>
+                    <p><strong>Phone:</strong> <span data-field="phone"></span></p>
                     <p><strong>Service:</strong> <span data-field="service"></span></p>
-                    <p><strong>Date:</strong> <span data-field="date"></span></p>
                     <p><strong>Status:</strong> <span data-field="status"></span></p>
-                    <p><strong>Assigned Agent:</strong> <span data-field="agent"></span></p>
                 </div>
-                <p class="result-note"><strong>Note:</strong> <span data-field="notes"></span></p>
             </section>
 
             <section id="docUploadSection" class="doc-upload" hidden>
-                <h2>Upload Documents</h2>
-                <p>Upload files for this appointment. They will be saved in this browser so office staff can review them on this system.</p>
+                <h2>Attachments</h2>
+                <p>You can save up to 30 documents for this appointment on this browser.</p>
                 <form id="docUploadForm" class="doc-form">
                     <input id="appointmentIdLocked" name="appointment_id_locked" type="hidden">
-                    <label for="appointmentDocs">Select documents</label>
+                    <label for="appointmentDocs">Add new documents</label>
                     <input id="appointmentDocs" name="appointment_docs" type="file" multiple required>
+                    <div id="selectedDocsInfo" class="selected-docs-info" aria-live="polite">
+                        <p>No files selected.</p>
+                    </div>
                     <button type="submit">Save Documents</button>
                 </form>
                 <div id="savedDocs" class="saved-docs" aria-live="polite"></div>

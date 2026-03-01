@@ -189,14 +189,20 @@ body {
 .nav .def_list .nav-list a.arabic-link,
 .mobile-nav-list a.arabic-link {
     background: #0b5cff;
-    padding: 6px 16px;
-    border-radius: 2px;
+    padding: 7px 16px;
+    border-radius: 999px;
     display: inline-block;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 6px 16px rgba(11, 92, 255, 0.25);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .nav .def_list .nav-list a.arabic-link:hover,
 .mobile-nav-list a.arabic-link:hover {
     background: #0948d9;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(11, 92, 255, 0.35);
 }
 
 /* Responsive rules */
@@ -1924,44 +1930,77 @@ button:hover {
 
 /* Track page */
 .track-hero {
+    position: relative;
+    overflow: hidden;
     text-align: center;
+    background:
+        linear-gradient(120deg, rgba(15, 23, 48, 0.92) 0%, rgba(11, 92, 255, 0.75) 100%),
+        url('./images/a-1.jpg') center/cover no-repeat;
+    color: #fff;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: 22px auto 0;
+    box-shadow: 0 14px 36px rgba(15, 23, 48, 0.24);
+}
+
+.track-hero h1 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
 }
 
 .track-hero p {
     max-width: 860px;
-    margin: 8px auto 0;
-    color: #e2e8f0;
+    margin: 10px auto 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.04rem;
+    line-height: 1.75;
 }
 
 .track-panel {
     max-width: 980px;
-    margin: 0 auto;
-    border-radius: 12px;
+    margin: -24px auto 24px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    box-shadow: 0 14px 34px rgba(15, 23, 48, 0.08);
 }
 
 .track-form {
     display: grid;
-    gap: 8px;
+    gap: 10px;
     max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .track-form label {
     font-weight: 700;
     color: #0f172a;
+    letter-spacing: 0.2px;
+    font-size: 1.3rem;
 }
 
 .track-row {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .track-row input {
     flex: 1 1 340px;
-    padding: 12px 14px;
-    border-radius: 8px;
+    padding: 13px 14px;
+    border-radius: 10px;
     border: 1px solid rgba(15, 23, 42, 0.2);
     font-size: 1rem;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.track-row input:focus,
+.doc-form input[type="file"]:focus {
+    outline: none;
+    border-color: #0b5cff;
+    box-shadow: 0 0 0 4px rgba(11, 92, 255, 0.14);
 }
 
 .track-row button,
@@ -1969,26 +2008,42 @@ button:hover {
     background: #0b5cff;
     color: #fff;
     border: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 11px 18px;
     font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 8px 18px rgba(11, 92, 255, 0.22);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .track-row button:hover,
 .doc-form button:hover {
     background: #0948d9;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(11, 92, 255, 0.32);
 }
 
 .track-hint {
-    color: #64748b;
+    color: #475569;
     font-size: 0.95rem;
+    text-align: center;
+}
+
+.track-hint a {
+    color: #0b5cff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.track-hint a:hover {
+    text-decoration: underline;
 }
 
 .track-feedback {
-    margin-top: 10px;
+    margin-top: 12px;
     min-height: 24px;
     font-weight: 700;
+    text-align: center;
 }
 
 .track-feedback.success {
@@ -2001,23 +2056,23 @@ button:hover {
 
 .appointment-result,
 .doc-upload {
-    margin-top: 18px;
-    background: #fff;
+    margin-top: 20px;
+    background: #fcfdff;
     border: 1px solid rgba(2, 6, 23, 0.08);
-    border-radius: 12px;
-    padding: 18px;
+    border-radius: 14px;
+    padding: 20px;
 }
 
 .appointment-result h2,
 .doc-upload h2 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #0f172a;
 }
 
 .result-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 8px;
+    gap: 10px;
 }
 
 .result-grid p,
@@ -2025,39 +2080,86 @@ button:hover {
     color: #334155;
 }
 
+.result-grid p {
+    margin: 0;
+    background: #f8fafc;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
 .doc-upload p {
     color: #475569;
+    line-height: 1.65;
 }
 
 .doc-form {
-    margin-top: 10px;
+    margin-top: 12px;
     display: grid;
-    gap: 8px;
+    gap: 10px;
 }
 
 .doc-form input[type="file"] {
-    padding: 8px;
+    padding: 10px;
     background: #f8fafc;
     border: 1px solid rgba(2, 6, 23, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
-.saved-docs {
-    margin-top: 14px;
+.selected-docs-info {
+    background: #f8fafc;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
 }
 
-.saved-docs ul {
+.selected-docs-info h3 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.selected-docs-info p {
+    margin: 0;
+    color: #475569;
+}
+
+.selected-docs-info ul {
     list-style: none;
     display: grid;
     gap: 8px;
     margin-top: 8px;
 }
 
-.saved-docs li {
-    background: #f8fafc;
+.selected-docs-info li {
+    background: #fff;
     border: 1px solid rgba(2, 6, 23, 0.08);
     border-radius: 8px;
-    padding: 10px 12px;
+    padding: 8px 10px;
+    line-height: 1.5;
+    color: #334155;
+}
+
+.saved-docs {
+    margin-top: 16px;
+}
+
+.saved-docs h3 {
+    color: #0f172a;
+}
+
+.saved-docs ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.saved-docs li {
+    background: #fff;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    border-radius: 10px;
+    padding: 11px 12px;
+    line-height: 1.55;
 }
 
 .saved-docs a {
@@ -2068,4 +2170,207 @@ button:hover {
 
 .saved-docs a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .track-hero {
+        margin-top: 14px;
+        border-radius: 12px;
+    }
+
+    .track-panel {
+        margin-top: -12px;
+        border-radius: 12px;
+        padding-top: 28px;
+    }
+
+    .track-row button,
+    .doc-form button {
+        width: 100%;
+    }
+}
+
+/* Hussein proposal page */
+.proposal-page .part_a,
+.proposal-page .part_b {
+    padding-top: 52px;
+    padding-bottom: 52px;
+}
+
+.proposal-hero {
+    background: linear-gradient(120deg, #0f1730 0%, #15366f 100%);
+    color: #fff;
+}
+
+.proposal-hero-grid {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.proposal-profile,
+.proposal-summary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.proposal-profile {
+    text-align: center;
+}
+
+.proposal-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.36);
+    margin-bottom: 12px;
+}
+
+.proposal-profile h1 {
+    margin-bottom: 4px;
+}
+
+.proposal-profile p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.proposal-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+
+.proposal-link:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.proposal-summary h2 {
+    margin-bottom: 10px;
+}
+
+.proposal-summary p {
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.75;
+}
+
+.proposal-price-card {
+    margin-top: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.proposal-price {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 4px 0;
+    color: #fde68a;
+}
+
+.proposal-scope,
+.proposal-feature,
+.proposal-contract {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.proposal-scope h2,
+.proposal-feature h2,
+.proposal-contract h2 {
+    text-align: center;
+    margin-bottom: 14px;
+    color: #0f172a;
+}
+
+.proposal-feature p,
+.proposal-contract p {
+    text-align: center;
+    color: #334155;
+    max-width: 980px;
+    margin: 0 auto;
+    line-height: 1.75;
+}
+
+.proposal-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.proposal-item,
+.proposal-contract-card {
+    background: #fff;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    padding: 18px;
+}
+
+.proposal-item h3,
+.proposal-contract-card h3 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.proposal-item ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: #334155;
+    line-height: 1.75;
+}
+
+.proposal-contract-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.proposal-contract-card p {
+    text-align: left;
+    margin: 0;
+}
+
+.proposal-note {
+    margin-top: 16px !important;
+    font-weight: 700;
+}
+
+.proposal-direct-contact {
+    margin-top: 12px !important;
+    font-weight: 700;
+    color: #0f172a !important;
+}
+
+.proposal-direct-contact a {
+    color: #0b5cff;
+    text-decoration: none;
+}
+
+.proposal-direct-contact a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .proposal-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proposal-list-grid,
+    .proposal-contract-cards {
+        grid-template-columns: 1fr;
+    }
 }
