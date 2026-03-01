@@ -96,12 +96,18 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   const mainBg = document.querySelector('.main_background');
   const mainInfo = document.querySelector('.main_info');
+  const heroPrev = document.getElementById('heroPrev');
+  const heroNext = document.getElementById('heroNext');
   if(!mainBg || !mainInfo) return;
 
   let idx = 0;
+  let autoTimer = null;
+  let gestureStartX = null;
 
   function showSlide(i){
-    const slide = slides[i % slides.length];
+    const slideIndex = ((i % slides.length) + slides.length) % slides.length;
+    const slide = slides[slideIndex];
+    idx = slideIndex;
     // fade text
     mainInfo.style.opacity = 0;
     // change background (will be visible under blue overlay)
@@ -123,11 +129,75 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }, 350);
   }
 
+  function nextSlide(){
+    showSlide(idx + 1);
+  }
+
+  function prevSlide(){
+    showSlide(idx - 1);
+  }
+
+  function stopAuto(){
+    if(autoTimer){
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function startAuto(){
+    stopAuto();
+    autoTimer = setInterval(nextSlide, 10000);
+  }
+
+  function resetAuto(){
+    startAuto();
+  }
+
   // preload images
   slides.forEach(s=>{ const img=new Image(); img.src=s.bg; });
 
   showSlide(idx);
-  setInterval(()=>{ idx = (idx+1) % slides.length; showSlide(idx); }, 10000);
+  startAuto();
+
+  heroNext?.addEventListener('click', ()=>{
+    nextSlide();
+    resetAuto();
+  });
+
+  heroPrev?.addEventListener('click', ()=>{
+    prevSlide();
+    resetAuto();
+  });
+
+  function handleSwipe(startX, endX){
+    if(startX === null || endX === null) return;
+    const diff = endX - startX;
+    const threshold = 45;
+    if(Math.abs(diff) < threshold) return;
+    if(diff < 0) nextSlide();
+    else prevSlide();
+    resetAuto();
+  }
+
+  mainBg.addEventListener('touchstart', (event)=>{
+    gestureStartX = event.changedTouches[0]?.clientX ?? null;
+  }, { passive: true });
+
+  mainBg.addEventListener('touchend', (event)=>{
+    const endX = event.changedTouches[0]?.clientX ?? null;
+    handleSwipe(gestureStartX, endX);
+    gestureStartX = null;
+  }, { passive: true });
+
+  mainBg.addEventListener('pointerdown', (event)=>{
+    if(event.pointerType === 'mouse' && event.button !== 0) return;
+    gestureStartX = event.clientX;
+  });
+
+  mainBg.addEventListener('pointerup', (event)=>{
+    handleSwipe(gestureStartX, event.clientX);
+    gestureStartX = null;
+  });
 
   // previously generated service cards here, now handled statically in HTML
 });
