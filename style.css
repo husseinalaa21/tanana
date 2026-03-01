@@ -264,7 +264,6 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
-    padding-top: 56px;
     padding-bottom: 128px;
 }
 
@@ -1071,6 +1070,52 @@ body {
     transform: translateY(-1px);
 }
 
+/* Hero-style eform (homepage only) */
+.main_background .eform .book,
+.main_background .eform #track {
+    background: rgba(9, 15, 38, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 44px rgba(2, 6, 23, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.main_background .eform h2 {
+    color: #fff;
+}
+
+.main_background .eform h3 {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.main_background .eform h3:hover {
+    color: #fcd34d;
+}
+
+.main_background .eform form input,
+.main_background .eform form select {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.main_background .eform form input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.main_background .eform form select option {
+    color: #0f172a;
+}
+
+.main_background .eform form input:focus,
+.main_background .eform form select:focus {
+    border-color: rgba(252, 211, 77, 0.95);
+    box-shadow: 0 0 0 3px rgba(252, 211, 77, 0.2);
+}
+
+.main_background .eform form button {
+    background: linear-gradient(135deg, #0b5cff 0%, #1d4ed8 100%);
+}
+
 /* main_content layout: side-by-side on wide screens, stacked on small */
 .main_content {
     display: block;
@@ -1079,7 +1124,6 @@ body {
 
 @media (min-width:900px) {
     .main_content {
-        margin-top: 20px;
         display: flex;
         justify-content: space-around;
         gap: 40px
