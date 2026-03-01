@@ -37,10 +37,11 @@
         <div class="nav">
             <div class="def_list">
                 <ul class="nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="active" aria-current="page">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="track.html" class="arabic-link">Track</a></li>
                 </ul>
             </div>
 
@@ -56,10 +57,11 @@
         <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true" aria-modal="true">
             <button id="mobileClose" class="mobile-close" aria-label="Close menu">&times;</button>
             <ul class="mobile-nav-list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="active" aria-current="page">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="track.html" class="arabic-link">Track</a></li>
             </ul>
         </div>
     </header>
@@ -106,7 +108,7 @@
                         <div id="track">
                             <h2>Track Your Appointment</h2>
                             <h3 onclick="toggleBook()">OR schedule newappointment?</h3>
-                            <form action="#" method="post">
+                            <form action="track.html" method="get">
                                 <input type="text" name="appointment_id" placeholder="Appointment ID" required>
                                 <button type="submit">Track</button>
                             </form>
@@ -118,34 +120,238 @@
         <div class="part_b">
             <h1>Our Services</h1>
             <div class="services">
-                <div class="service" role="button" tabindex="0" data-link="/services/tax" style="background-image:url('./images/a-1.jpg')">
+                <div class="service" role="button" tabindex="0" data-link="tax.html"
+                    style="background-image:url('./images/a-1.jpg')">
                     <h2>Accounting & Taxation</h2>
                     <p>Accurate bookkeeping and compliant tax preparation.</p>
                 </div>
-                <div class="service" role="button" tabindex="0" data-link="/services/insurance" style="background-image:url('./images/a-2.jpg')">
-                    <h2>Insurance & Risk Protection</h2>
-                    <p>Tailored insurance solutions to protect people and assets.</p>
+                <div class="service" role="button" tabindex="0" data-link="services.html"
+                    style="background-image:url('./images/a-2.jpg')">
+                    <h2>Tanana Insurance</h2>
+                    <p>The best way to secure your investments, properties and loved ones from unplanned catastrophies is getting an insurance cover. We want the best for you, your investments, properties and loved ones, and that is evident in the establishment of our insurance agency arm, Tanana Insurance Agency.</p>
                 </div>
-                <div class="service" role="button" tabindex="0" data-link="/services/realty" style="background-image:url('./images/a-3.jpg')">
+                <div class="service" role="button" tabindex="0" data-link="services.html"
+                    style="background-image:url('./images/a-3.jpg')">
                     <h2>Realty & Mortgage Services</h2>
                     <p>Helping buyers, sellers, and borrowers connect and succeed.</p>
                 </div>
-                <div class="service" role="button" tabindex="0" data-link="/contact" style="background-image:url('./images/a-4.jpg')">
+                <div class="service" role="button" tabindex="0" data-link="contact.html"
+                    style="background-image:url('./images/a-4.jpg')">
                     <h2>Immigration & Translation</h2>
                     <p>Expert support for immigration processes and official translations.</p>
                 </div>
             </div>
-            <div class="part_a about_us_background">
-                <div class="about_us_content">
-                    <h1>About Us</h1>
-                    <p>At Tanana & Sons, we are dedicated to providing exceptional tax accounting, financial planning,
-                        and mortgage services. With years of experience and a commitment to excellence, we strive to
-                        help our clients achieve their financial goals and secure their future.</p>
-                    <div class="about-photos">
-                        <img src="./images/tanana_office.webp" alt="Tanana exterior" />
+        </div>
+        <div class="part_a about_us_background">
+            <div class="about_us_content">
+                <h1>About Us</h1>
+                <p>At Tanana & Sons, we are dedicated to providing exceptional tax accounting, financial planning,
+                    and mortgage services. With years of experience and a commitment to excellence, we strive to
+                    help our clients achieve their financial goals and secure their future.</p>
+                <div class="about-photos">
+                    <img src="./images/tanana_office.webp" alt="Tanana exterior" />
+                    <div class="experience-badge">
+                        <span class="badge-number">30+</span>
+                        <span class="badge-text">Years of<br />Excellence</span>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="part_b stats-section">
+            <h1>Our Track Record</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50M+</div>
+                    <div class="stat-label">Managed Assets</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="part_a testimonials-section">
+            <h1>What Our Clients Say</h1>
+            <div class="testimonials-slider" aria-label="Client reviews slider">
+                <button class="reviews-nav prev" id="reviewsPrev" aria-label="Previous reviews">‹</button>
+                <div class="testimonials-viewport">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=11" alt="Hussein Alzuabidi (Harry)"
+                                    class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Hussein Alzuabidi (Harry)</div>
+                                    <div class="testimonial-role">1 review</div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"Good guys and professionals. And Hassan is the best."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Ali" class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Ali</div>
+                                    <div class="testimonial-role">3 reviews • 3 months ago</div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"Great price. This office is the best! They have many experts
+                                who offer immigration and tax services. I did my translation here and she’s truly the
+                                best. I even come all the way from Dearborn for all my immigration needs."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=13" alt="Drake B." class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Drake B.</div>
+                                    <div class="testimonial-role">Local Guide • 20 reviews • 4 photos • 3 months ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"Zahara was amazing to work with and helped my mom obtain her
+                                US citizenship. Zahara helped my mother every step of the way and was truly a
+                                professional in the process. My mother and entire family are very grateful for her
+                                assistance."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=14" alt="Nora A." class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Nora A.</div>
+                                    <div class="testimonial-role">2 reviews • 11 months ago</div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"Very honest people, they made the process smooth and
+                                pleasant. I highly recommend this office to anyone that needs help with their
+                                immigration cases. The dealings were more than wonderful and flexible. Very professional
+                                and we were happy with the outcome, the communication was excellent and so was the
+                                support throughout the case. I cannot express enough gratitude for the exceptional
+                                service I received from Ibrahim Tanana’s office. They deserve more than 5 stars! You
+                                really made a huge difference when things got tough, your dedication, knowledge and
+                                support are just amazing and helped a lot in guiding my mother on getting her
+                                citizenship without having to do the English test from the beginning of the process to
+                                the end. You have a beautiful soul, and I can’t thank you enough for helping my mother
+                                and I. God bless you."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=15" alt="Zina H" class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Zina H</div>
+                                    <div class="testimonial-role">2 reviews • 3 months ago</div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"My first time working with Hassan ajami for tax preparer he's
+                                the amazing person I ever met with respectful and wonderful work thank you so much. I
+                                absolutely recommend."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=16" alt="APlus Cleaning Services"
+                                    class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">APlus Cleaning Services</div>
+                                    <div class="testimonial-role">1 review • 8 months ago</div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"The best Immigration service ever!!! I wish i can give more
+                                than 5 Stars!!!! I am in California and i would like to thank Zahra for everything, she
+                                is great and handled everything from beginning to the end in a professional manner. She
+                                kept me updated and whenever i needed an answer she quickly and efficiently answered and
+                                listened to me, even i was in a deferent state, they make me feel like I was near them.
+                                I would definitely recommend. Thank you for everything and all your efforts!!! I will
+                                refer you everyone that needs immigration assistance."</div>
+                        </div>
+
+                        <div class="testimonial-card testimonial-slide">
+                            <div class="testimonial-header">
+                                <img src="https://i.pravatar.cc/150?img=17" alt="Blessing or Lesson Reviews 786"
+                                    class="testimonial-avatar" />
+                                <div class="testimonial-author-info">
+                                    <div class="testimonial-author">Blessing or Lesson Reviews 786</div>
+                                    <div class="testimonial-role">Local Guide • 255 reviews • 1905 photos • a year ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star-rating"><span class="star">★</span><span class="star">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                            <div class="testimonial-text">"Strongly Recommend this team of professionals here! They are
+                                experts in tax, real state, accounting and much much more! Mahmoud, Kassem and the
+                                Bossman Ibrahim are very honest and humble hard working people, trust that your great
+                                hands!!!"</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="reviews-nav next" id="reviewsNext" aria-label="Next reviews">›</button>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="part_b team-section">
+            <h1>Meet Our Team</h1>
+            <p class="section-subtitle">Experienced professionals dedicated to your success</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="./agents/Ibrahim-Tanana.jpg" alt="Ibrahim Tanana" />
+                    <h3>Ibrahim Tanana</h3>
+                    <p class="role">Founder & CEO</p>
+                    <p class="bio">30+ years in accounting and financial services</p>
+                </div>
+                <div class="team-member">
+                    <img src="./agents/Kassem-Tanana.jpg" alt="Kassem Tanana" />
+                    <h3>Kassem Tanana</h3>
+                    <p class="role">Senior Tax Advisor</p>
+                    <p class="bio">Specialized in corporate tax planning</p>
+                </div>
+                <div class="team-member">
+                    <img src="./agents/Mac-Tanana.jpg" alt="Mac Tanana" />
+                    <h3>Mac Tanana</h3>
+                    <p class="role">Financial Planner</p>
+                    <p class="bio">Expert in retirement and investment strategies</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="part_a cta-section">
+            <div class="cta-content">
+                <h1>Ready to Take Control of Your Finances?</h1>
+                <p>Schedule a free consultation today and discover how we can help you achieve your financial goals.</p>
+                <div class="cta-buttons">
+                    <a href="#book" class="btn-primary">Book Appointment</a>
+                    <a href="tel:+15865539116" class="btn-secondary">Call Us Now</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="end site-footer">
@@ -158,19 +364,24 @@
             <div class="footer-col footer-nav">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
 
             <div class="footer-col footer-contact">
                 <h4>Contact</h4>
-                <p class="muted">Phone: (555) 123-4567<br/>Email: <a href="mailto:info@tanana.com">info@tanana.com</a></p>
+                <p class="muted">Phone 1: <a href="tel:+15865539116">(586) 553-9116</a><br />
+                    Phone 2: <a href="tel:+13138068028">(313) 806-8028</a><br />
+                    WhatsApp: <a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a><br />
+                    Email: <a href="mailto:admin@tanana.com">admin@tanana.com</a><br />
+                    Address: 3555 14 Mile Rd, Sterling Heights MI 48310
+                </p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61586677889539" target="_blank">Facebook</a>
-                    <a href="mailto:illinoisvictims.claims@gmail.com">Email</a>
+                    <a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
             </div>
 
@@ -189,7 +400,8 @@
         </div>
 
         <div class="site-footer-bottom">
-            <p>&copy; 2026 Tanana &amp; Sons. All Rights Reserved. <span class="sep">|</span> <a href="/privacy">Privacy</a></p>
+                <p>&copy; 2026 Tanana &amp; Sons. All Rights Reserved. <span class="sep">|</span> <a
+                    href="privacy.html">Privacy</a></p>
         </div>
     </footer>
 </body>

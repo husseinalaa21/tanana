@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Tanana & Sons.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Contact - Tanana & Sons</title>
+</head>
+
+<body>
+    <div class="alert">this is a demo website for Tanana & Sons. made by <a href="https://github.com/husseinalaa21">hussein alzuabidi</a>.</div>
+    <header class="header">
+        <div class="logo">
+            <div class="logo_image"><img src="./icons/2-3.png" alt="logo" width="48px"></div>
+            <div class="logo_text"><h1>Tanana</h1><h2>Tanana & Sons- Ibrahim Tanana</h2></div>
+        </div>
+        <div class="nav">
+            <div class="def_list">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+                    <li><a href="track.html" class="arabic-link">Track</a></li>
+                </ul>
+            </div>
+            <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+        </div>
+        <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true" aria-modal="true">
+            <button id="mobileClose" class="mobile-close" aria-label="Close menu">&times;</button>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+                <li><a href="track.html" class="arabic-link">Track</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="part_a contact-hero-map">
+            <iframe
+                class="contact-map-bg"
+                title="Contact Map Background"
+                src="https://www.google.com/maps?q=3555+14+Mile+Rd,+Sterling+Heights,+MI+48310&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                aria-hidden="true"
+                tabindex="-1">
+            </iframe>
+            <div class="contact-hero-overlay"></div>
+            <div class="contact-hero-content">
+                <h1>Contact Us</h1>
+                <p>We’re here to help with tax, insurance, financial planning, realty, and immigration support. Reach out and our team will guide you to the right next step.</p>
+            </div>
+        </div>
+
+        <div class="part_b contact-touch">
+            <h2>Get In Touch</h2>
+            <p class="contact-touch-intro">Reach us directly and our team will respond quickly with clear next steps.</p>
+            <div class="contact-touch-grid">
+                <div class="contact-touch-card">
+                    <h3>Phone Numbers</h3>
+                    <p><a href="tel:+15865539116">(586) 553-9116</a><br/><a href="tel:+13138068028">(313) 806-8028</a></p>
+                </div>
+                <div class="contact-touch-card">
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+                </div>
+                <div class="contact-touch-card">
+                    <h3>Email & Address</h3>
+                    <p><a href="mailto:admin@tanana.com">admin@tanana.com</a><br/>3555 14 Mile Rd, Sterling Heights MI 48310</p>
+                </div>
+                <div class="contact-touch-card">
+                    <h3>Business Hours</h3>
+                    <p>Monday to Friday, 9:00 AM – 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="part_a">
+            <div class="eform" style="max-width: 700px; margin: 0 auto;">
+                <div class="book">
+                    <h2>Send Us a Message</h2>
+                    <p style="text-align:center; margin-bottom:12px; color:#5b6472;">Tell us what you need and we’ll respond with clear next steps.</p>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <select name="service" required>
+                            <option value="" disabled selected>Select a Service</option>
+                            <option value="tax">Tax Accounting</option>
+                            <option value="insurance">Insurance</option>
+                            <option value="financial">Financial Planning</option>
+                            <option value="realty">Realty & Mortgage</option>
+                            <option value="immigration">Immigration Services</option>
+                        </select>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="part_b">
+            <h2>What To Expect After Contacting Us</h2>
+            <ol style="line-height:1.9; margin-top:10px;">
+                <li>Initial review of your request and service needs.</li>
+                <li>A response with required documents and timeline.</li>
+                <li>Consultation scheduling and clear action plan.</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="end site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p class="muted">Phone 1: <a href="tel:+15865539116">(586) 553-9116</a><br/>
+                    Phone 2: <a href="tel:+13138068028">(313) 806-8028</a><br/>
+                    WhatsApp: <a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a><br/>
+                    Email: <a href="mailto:admin@tanana.com">admin@tanana.com</a><br/>
+                    Address: 3555 14 Mile Rd, Sterling Heights MI 48310
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61586677889539" target="_blank">Facebook</a>
+                    <a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your appointment and upload documents for Tanana & Sons.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Track Appointment - Tanana & Sons</title>
+</head>
+
+<body>
+    <div class="alert">this is a demo website for Tanana & Sons. made by <a href="https://github.com/husseinalaa21">hussein alzuabidi</a>.</div>
+    <header class="header">
+        <div class="logo">
+            <div class="logo_image"><img src="./icons/2-3.png" alt="logo" width="48px"></div>
+            <div class="logo_text"><h1>Tanana</h1><h2>Tanana & Sons- Ibrahim Tanana</h2></div>
+        </div>
+        <div class="nav">
+            <div class="def_list">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="track.html" class="arabic-link active" aria-current="page">Track</a></li>
+                </ul>
+            </div>
+            <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+        </div>
+        <div id="mobileNav" class="mobile-nav" role="dialog" aria-hidden="true" aria-modal="true">
+            <button id="mobileClose" class="mobile-close" aria-label="Close menu">&times;</button>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="track.html" class="arabic-link active" aria-current="page">Track</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="part_a track-hero">
+            <h1>Track Your Appointment</h1>
+            <p>Enter your appointment ID to view your case details, then upload your required documents securely for our office review.</p>
+        </section>
+
+        <section class="part_b track-panel">
+            <form id="trackLookupForm" class="track-form" novalidate>
+                <label for="appointmentId">Appointment ID</label>
+                <div class="track-row">
+                    <input id="appointmentId" name="appointment_id" type="text" required placeholder="Example: TN-1001" autocomplete="off">
+                    <button type="submit">Submit</button>
+                </div>
+                <p class="track-hint">Appointment ID is required.</p>
+            </form>
+
+            <p id="trackFeedback" class="track-feedback" aria-live="polite"></p>
+
+            <section id="appointmentResult" class="appointment-result" hidden>
+                <h2>Appointment Information</h2>
+                <div class="result-grid">
+                    <p><strong>ID:</strong> <span data-field="id"></span></p>
+                    <p><strong>Client:</strong> <span data-field="client"></span></p>
+                    <p><strong>Service:</strong> <span data-field="service"></span></p>
+                    <p><strong>Date:</strong> <span data-field="date"></span></p>
+                    <p><strong>Status:</strong> <span data-field="status"></span></p>
+                    <p><strong>Assigned Agent:</strong> <span data-field="agent"></span></p>
+                </div>
+                <p class="result-note"><strong>Note:</strong> <span data-field="notes"></span></p>
+            </section>
+
+            <section id="docUploadSection" class="doc-upload" hidden>
+                <h2>Upload Documents</h2>
+                <p>Upload files for this appointment. They will be saved in this browser so office staff can review them on this system.</p>
+                <form id="docUploadForm" class="doc-form">
+                    <input id="appointmentIdLocked" name="appointment_id_locked" type="hidden">
+                    <label for="appointmentDocs">Select documents</label>
+                    <input id="appointmentDocs" name="appointment_docs" type="file" multiple required>
+                    <button type="submit">Save Documents</button>
+                </form>
+                <div id="savedDocs" class="saved-docs" aria-live="polite"></div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="end site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-col footer-brand">
+                <img src="./icons/2-3.png" alt="Tanana logo" class="footer-logo" />
+                <p class="muted">Tanana &amp; Sons — Tax accounting, financial planning &amp; mortgage services.</p>
+            </div>
+            <div class="footer-col footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p class="muted">Phone 1: <a href="tel:+15865539116">(586) 553-9116</a><br/>
+                    Phone 2: <a href="tel:+13138068028">(313) 806-8028</a><br/>
+                    WhatsApp: <a href="https://wa.me/15865539116" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a><br/>
+                    Email: <a href="mailto:admin@tanana.com">admin@tanana.com</a><br/>
+                    Address: 3555 14 Mile Rd, Sterling Heights MI 48310
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
